@@ -6,7 +6,7 @@ const Categories: React.FC = () => {
   return (
     <>
     <main>
-      <div className="container mx-auto my-20 md:flex justify-between lg:px-16 px-4">
+      <div className="xl:w-4/5 w-11/12 container mx-auto my-20 md:flex justify-between">
         <div className="shadow-3xl md:mx-2 py-8 my-16 w-full rounded-md flex flex-col items-center justify-center relative">
           <div className="absolute -top-12">
           <Image src='/headphones_c_1.webp' width='150' height='150' />

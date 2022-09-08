@@ -5,7 +5,7 @@ import zx9_image from '../assets/desktop/image-speaker-zx9.png';
 
 const Banner: React.FC = () => {
   return(
-    <div className='lg:w-4/5 w-11/12 lg:flex h-[560px] relative items-center bg-[#ec5d49] gap-7 text-white container rounded-md overflow-hidden mx-auto bg-[url("/pattern-circles.svg")] bg-no-repeat bg-center bg-cover'>
+    <div className='xl:w-4/5 w-11/12 lg:flex h-[560px] relative items-center bg-[#ec5d49] gap-7 text-white container rounded-md overflow-hidden mx-auto bg-[url("/pattern-circles.svg")] bg-no-repeat bg-center bg-cover'>
     <div className=' -bottom-4 lg:absolute lg:w-[30%] lg:max-w-full max-w-[13rem] mx-auto mt-16 left-32'>
     <Image src={zx9_image} alt="ZX9 Speaker" placeholder="blur"/>
     </div>

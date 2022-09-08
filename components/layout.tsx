@@ -1,4 +1,5 @@
 import React from 'react'
+import { Footer } from './footer'
 import { Header } from './header'
 import { SEO } from './seo'
 // import { Topbar, Footer, Gear, Categories } from '@components/index'
@@ -16,7 +17,7 @@ export const Layout: React.FC<IProps> = ({ children }) => {
       <main id="main">
         {children}
       </main>
-      {/* <Footer /> */}
+      <Footer />
     </>
   )
 }

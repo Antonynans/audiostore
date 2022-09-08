@@ -5,7 +5,7 @@ import Image from 'next/image'
 
 export const Banner3: React.FC = () => {
   return (
-    <div className='lg:w-4/5 w-11/12 container mx-auto  flex flex-col gap-6 lg:flex-row my-8'>
+    <div className='xl:w-4/5 w-11/12 container mx-auto  flex flex-col gap-6 lg:flex-row my-8'>
       <div className='h-[200px] lg:h-[320px] lg:w-1/2 rounded-md overflow-hidden flex'>
         <Image
           src={yx1_image}
