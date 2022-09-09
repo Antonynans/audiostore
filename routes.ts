@@ -1,7 +1,7 @@
 import { BsEarbuds } from 'react-icons/bs'
 import { RiHome2Fill } from 'react-icons/ri'
 import { IoHeadset } from 'react-icons/io5'
-import { BsSpeakerFill } from 'react-icons/bs'
+import { BsSpeakerFill, BsWatch } from 'react-icons/bs'
 
 export const routes = [
   {
@@ -24,5 +24,10 @@ export const routes = [
     slug: '/category/earphones',
     desc: '',
     Icon: BsEarbuds,
+  },
+  {
+    title: 'watches',
+    slug: '/category/watches',
+    Icon: BsWatch,
   },
 ]

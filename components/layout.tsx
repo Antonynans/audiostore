@@ -1,4 +1,5 @@
 import React from 'react'
+import Categories from './categories'
 import { Footer } from './footer'
 import { Gear } from './gear'
 import { Header } from './header'
@@ -10,13 +11,14 @@ interface IProps {
   hideCategories?: boolean
 }
 
-export const Layout: React.FC<IProps> = ({ children }) => {
+export const Layout: React.FC<IProps> = ({ children, hideCategories }) => {
   return (
     <>
     <SEO />
       <Header />
       <main id="main">
         {children}
+        {!hideCategories && <Categories />}
         <Gear />
       </main>
       <Footer />

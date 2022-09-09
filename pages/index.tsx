@@ -12,7 +12,7 @@ import { Layout } from '../components/layout'
 const Home: NextPage = () => {
   return (
    <>
-   <Layout>
+   <Layout hideCategories>
    <HeroBanner />
    <Categories />
    <Banner1 />   
