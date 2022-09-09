@@ -1,8 +1,9 @@
 import React from 'react'
-import image_best_gear from '../assets/tablet/image-best-gear.jpg';
+import image_best_gear from '../assets/shared/tablet/image-best-gear.jpg';
 import Image from 'next/image'
 
 export const Gear: React.FC = () => {
+  
   return (
     <div className='xl:w-4/5 w-11/12 container mx-auto lg:flex flex-row-reverse items-center gap-12 mb-16'>
       <div className='h-[300px] lg:h-[500px] md:h-auto lg:w-1/2 rounded-md overflow-hidden flex'>

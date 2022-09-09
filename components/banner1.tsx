@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import zx9_image from '../assets/desktop/image-speaker-zx9.png';
+import zx9_image from '../assets/home/desktop/image-speaker-zx9.png';
 
 
 

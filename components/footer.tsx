@@ -13,8 +13,8 @@ export const Footer: React.FC = () => {
   const router = useRouter()
 
   return (
-    <div className="xl:w-4/5 w-11/12 container mx-auto bg-black text-white">
-      
+    <div className=" bg-black text-white">
+      <div className='xl:w-4/5 w-11/12 container mx-auto'>
       <div className='flex items-center pt-12'>
         <p>audiStore</p>
       <ul className="flex flex-col lg:flex-row list-none lg:ml-auto ml-[25%] lg:transform-none translate-y-[-50%] translate-x-[-50%]">
@@ -101,6 +101,7 @@ export const Footer: React.FC = () => {
               )
             })}
           </ul>
+        </div>
         </div>
     </div>
   )

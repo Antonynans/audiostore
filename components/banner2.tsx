@@ -1,6 +1,3 @@
-import Image from 'next/image';
-// import zx7_image from '../assets/desktop/image-speaker-zx7.jpg';
-
 
 
 const Banner2: React.FC = () => {

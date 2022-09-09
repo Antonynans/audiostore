@@ -4,7 +4,6 @@ import Banner1 from '../components/banner1'
 import Banner2 from '../components/banner2'
 import { Banner3 } from '../components/banner3'
 import Categories from '../components/categories'
-import { Gear } from '../components/gear'
 // import { Header } from '../components/header'
 import HeroBanner from '../components/herobanner'
 import { Layout } from '../components/layout'
@@ -19,7 +18,6 @@ const Home: NextPage = () => {
    <Banner1 />   
    <Banner2 />
    <Banner3 />
-    <Gear />
 
    </Layout>
    </>

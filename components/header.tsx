@@ -19,7 +19,7 @@ export const Header: React.FC = () => {
   return (
     <>
       <nav className="sticky top-0 z-20 py-2 md:py-6 dark:bg-black">
-        <div className="container px-4 mx-auto lg:max-w-4xl flex flex-wrap items-center justify-between">
+        <div className="xl:w-4/5 w-11/12 container mx-auto flex flex-wrap items-center justify-between">
           <div className="w-full sticky flex justify-between lg:w-auto lg:static lg:block lg:justify-start lg:h-auto h-[10vh] items-center">
           {/* <Link href="/"> */}
           <div className='lg:hidden text-3xl text-white px-3 py-2 flex items-center'>
@@ -68,11 +68,11 @@ export const Header: React.FC = () => {
                 </Link>
               </li>
               <li className={
-                      router.pathname.startsWith("/headphones")
+                      router.pathname === "/category/headphones"
                       ? style.active
                       : style.inactive
                     } onClick={() => setNavbarOpen(false)}>
-                      <Link href="/headphones">
+                      <Link href="/category/headphones">
                 <a
                   className="px-3 py-2 flex items-center uppercase font-bold leading-snug"
                   
@@ -82,11 +82,11 @@ export const Header: React.FC = () => {
                 </Link>
               </li>
               <li className={
-                      router.pathname.startsWith("/speakers")
+                      router.pathname.startsWith("/category/speakers")
                       ? style.active
                       : style.inactive
                     } onClick={() => setNavbarOpen(false)}>
-                      <Link href="/speakers">
+                      <Link href="/category/speakers">
                 <a
                   className="px-3 py-2 flex items-center uppercase font-bold leading-snug "
                   
@@ -96,16 +96,16 @@ export const Header: React.FC = () => {
                 </Link>
               </li>
               <li className={
-                      router.pathname.startsWith("/watches")
+                      router.pathname.startsWith("/category/earphones")
                       ? style.active
                       : style.inactive
                     } onClick={() => setNavbarOpen(false)}>
-                      <Link href="/watches">
+                      <Link href="/category/earphones">
                 <a
                   className="px-3 py-2 flex items-center uppercase font-bold leading-snug "
                   
                 >
-                  WATCHES
+                  EARPHONES
                 </a>
                 </Link>
               </li>

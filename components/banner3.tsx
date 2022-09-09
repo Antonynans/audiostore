@@ -1,5 +1,5 @@
 import React from 'react'
-import yx1_image from '../assets/tablet/image-earphones-yx1.jpg';
+import yx1_image from '../assets/home/tablet/image-earphones-yx1.jpg';
 import Image from 'next/image'
 
 
