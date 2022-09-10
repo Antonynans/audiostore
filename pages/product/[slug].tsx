@@ -1,24 +1,57 @@
 import type { NextPage } from 'next'
 import { Layout } from '../../components/layout';
-import { Preview } from '../../components/preview';
 import { IProduct } from '../../models/product';
 import { GetStaticProps, GetStaticPaths } from 'next'
+import { SEO } from '../../components/seo';
+import { ParsedUrlQuery } from 'querystring'
+import { Product } from '../../components/product';
+import { products } from '../../data';
 
 
 
 interface IProps {
-  products: IProduct[]
-  title: string
+  product: IProduct
 
 }
 
-const Product: NextPage<IProps> = props => {
+const ProductPage: NextPage<IProps> = props => {
+  const { product } = props
 
   return (
-<div>
-  
-</div>
+<>
+<SEO
+        title={product.name}
+        desc={product.description}
+      />
+      <Layout>
+        <Product product={product} />
+      </Layout>
+</>
   )
 }
 
-export default Product
+export const getStaticPaths: GetStaticPaths = async () => {
+  const paths = products.map(product => {
+    return {
+      params: { slug: product.slug || '' },
+    }
+  })
+  return {
+    paths,
+    fallback: false,
+  }
+}
+
+interface IParams extends ParsedUrlQuery {
+  slug: string
+}
+
+export const getStaticProps: GetStaticProps = async context => {
+  const { slug } = context.params as IParams
+  const data = products.find(product => product.slug === slug)
+  return {
+    props: { product: data },
+  }
+}
+
+export default ProductPage
