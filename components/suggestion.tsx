@@ -14,11 +14,11 @@ export const Suggestion: React.FC<IProps> = ({ suggestion }) => {
 
   return (
     <li className=''>
-      <div className=''>
+      <div className='overflow-hidden rounded-sm flex min-h-40 md:h-80'>
         <Image
           src={suggestion.image.desktop}
           objectFit="cover"
-          placeholder="blur"
+          // placeholder="blur"
         />
       </div>
       <h3 className=''>{suggestion.name}</h3>

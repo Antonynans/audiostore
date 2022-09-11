@@ -17,6 +17,9 @@ interface IProps {
 const ProductPage: NextPage<IProps> = props => {
   const { product } = props
 
+  // console.log('product', product);
+  
+
   return (
 <>
 <SEO
@@ -47,7 +50,7 @@ interface IParams extends ParsedUrlQuery {
 }
 
 export const getStaticProps: GetStaticProps = async context => {
-  const { slug } = context.params as IParams
+  const { slug } = context.params
   const data = products.find(product => product.slug === slug)
   return {
     props: { product: data },

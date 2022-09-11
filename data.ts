@@ -1,9 +1,3 @@
-/*-------------------------------------------------------------------
-|  Data
-|
-|  Purpose: PROVIDES E-COMMERCE PRODUCTS
-*-------------------------------------------------------------------*/
-
 import {
   product_xx59_headphones_desktop,
   product_xx59_headphones_mobile,
