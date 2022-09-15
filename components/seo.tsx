@@ -7,16 +7,16 @@ interface IProps {
   desc?: string
 }
 
-export const SEO: React.FC<IProps> = () => {
+export const SEO: React.FC<IProps> = ({ title = '', desc = '' }) => {
   return (
     <NextSeo
-      title='online store'
-      description='ecommerce store'
+      title={title}
+      description={desc}
       additionalLinkTags={[{ rel: 'icon', href: '/favicon.ico' }]}
       openGraph={{
         url: `https://eccomrce2.netlify.app`,
-        // title: title,
-        // description: desc,
+        title: title,
+        description: desc,
         locale: 'en_us',
         images: [
           {

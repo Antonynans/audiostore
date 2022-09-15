@@ -3,7 +3,7 @@ import { Layout } from '../../components/layout';
 import { Preview } from '../../components/preview';
 import { IProduct } from '../../models/product';
 import { GetStaticProps, GetStaticPaths } from 'next'
-import { routes } from '../../routes';
+import { routes } from '../../utils/routes';
 import { products } from '../../data';
 
 

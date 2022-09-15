@@ -5,7 +5,7 @@ import { ShowCart } from './cart/showCart';
 import { useOnClickOutside } from 'usehooks-ts'
 import { AnimatePresence, motion } from 'framer-motion'
 import { framer_menu } from './cart/framer';
-import { routes } from '../routes';
+import { routes } from '../utils/routes';
 import { Squash } from 'hamburger-react'
 
 
@@ -38,7 +38,7 @@ export const Header: React.FC = () => {
       </div>
       <AnimatePresence>
         {open && (
-          <motion.ul className='fixed bg-black flex flex-col lg:flex-row lg:justify-between gap-4 top-16 left-0 right-0 z-[-1] border-b-2 border-[#242424]' {...framer_menu}>
+          <motion.ul className='fixed bg-black flex flex-col lg:flex-row lg:justify-between gap-4 top-16 left-0 right-0 z-[-1] border-b-2 border-[#242424] mt-12' {...framer_menu}>
             {routes.map(route => {
               const { Icon, slug, title } = route
 

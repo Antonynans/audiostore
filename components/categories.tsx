@@ -1,6 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { MdNavigateNext } from 'react-icons/md'
+import { categories } from "../utils/categories"
 
 
 const Categories: React.FC = () => {
@@ -8,42 +9,21 @@ const Categories: React.FC = () => {
     <>
     <main>
       <div className="xl:w-4/5 w-11/12 container mx-auto my-20 md:flex justify-between">
+      {categories.map(cat => (
         <div className="shadow-3xl md:mx-2 py-8 my-16 w-full rounded-md flex flex-col items-center justify-center relative">
-          <div className="absolute -top-12">
-          <Image src='/headphones_c_1.webp' width='150' height='150' />
-          </div>
-          <p className="text-center mt-16">HEADPHONES</p>
-          <Link href='/headphones'>
-            <a className="flex items-center justify-center hover:text-orange-500">SHOP <MdNavigateNext /> </a>
-          </Link>
+        <div className="absolute -top-12 w-40 h-40">
+        <Image  src={cat.image}
+          alt={cat.title}
+          placeholder="blur"
+          objectFit="cover"  />
         </div>
-        <div className="shadow-3xl md:mx-2 py-8 my-16 w-full rounded-md flex flex-col items-center justify-center relative">
-          <div className="absolute -top-12">
-          <Image src='/speaker-thumbnail.png' width='150' height='150' />
-          </div>
-          <p className="text-center mt-16">SPEAKERS</p>
-          <Link href='/speakers'>
-            <a className="flex items-center justify-center hover:text-orange-500">SHOP <MdNavigateNext /> </a>
-          </Link>
-        </div>
-        <div className="shadow-3xl md:mx-2 py-8 my-16 w-full rounded-md flex flex-col items-center justify-center relative">
-          <div className="absolute -top-12">
-          <Image src='/watch_1.webp' width='150' height='150' />
-          </div>
-          <p className="text-center mt-16">WATCHES</p>
-          <Link href='/watches'>
-            <a className="flex items-center justify-center hover:text-orange-500">SHOP <MdNavigateNext /> </a>
-          </Link>
-        </div>
-        <div className="shadow-3xl md:mx-2 py-8 my-16 w-full rounded-md flex flex-col items-center justify-center relative">
-          <div className="absolute -top-12">
-          <Image src='/earphones_c_1.webp' width='150' height='150' />
-          </div>
-          <p className="text-center mt-16">EARPHONES</p>
-          <Link href='/earphones'>
-            <a className="flex items-center justify-center hover:text-orange-500">SHOP <MdNavigateNext /> </a>
-          </Link>
-        </div>
+        <p className="text-center mt-16 uppercase">{cat.title}</p>
+        <Link href={cat.slug}>
+          <a className="flex items-center justify-center hover:text-orange-500">SHOP <MdNavigateNext /> </a>
+        </Link>
+      </div>
+      ))}
+        
       </div>
     </main>
     </>

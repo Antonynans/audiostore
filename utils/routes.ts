@@ -25,9 +25,4 @@ export const routes = [
     desc: '',
     Icon: BsEarbuds,
   },
-  {
-    title: 'watches',
-    slug: '/category/watches',
-    Icon: BsWatch,
-  },
 ]

@@ -13,7 +13,7 @@ export const Suggestion: React.FC<IProps> = ({ suggestion }) => {
   const router = useRouter();
 
   return (
-    <li className=''>
+    <li className='flex flex-col items-center gap-8'>
       <div className='overflow-hidden rounded-sm flex min-h-40 md:h-80'>
         <Image
           src={suggestion.image.desktop}
@@ -21,8 +21,8 @@ export const Suggestion: React.FC<IProps> = ({ suggestion }) => {
           // placeholder="blur"
         />
       </div>
-      <h3 className=''>{suggestion.name}</h3>
-      <button onClick={() => router.push(`/product/${suggestion.slug}`)}>
+      <h3 className='uppercase font-black'>{suggestion.name}</h3>
+      <button className='p-4 w-full max-w-[160px] mt-8 rounded-sm border-2 bg-orange-500 uppercase text-white hoverBtn' onClick={() => router.push(`/product/${suggestion.slug}`)}>
         see product
       </button>
     </li>

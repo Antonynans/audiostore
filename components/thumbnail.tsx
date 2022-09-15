@@ -8,7 +8,7 @@ interface IProps {
 
 export const Thumbnail: React.FC<IProps> = ({ thumbnail }) => {
   return (
-    <div className='{css.image}'>
+    <div className='flex overflow-hidden rounded-md'>
       <Image
         src={thumbnail}
         alt="product"
