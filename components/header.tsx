@@ -1,125 +1,103 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import Link from "next/link";
-import { FaBars } from 'react-icons/fa';
-import { AiOutlineClose, AiOutlineShopping } from 'react-icons/ai';
 import { useRouter } from "next/router";
+import { ShowCart } from './cart/showCart';
+import { useOnClickOutside } from 'usehooks-ts'
+import { AnimatePresence, motion } from 'framer-motion'
+import { framer_menu } from './cart/framer';
+import { routes } from '../routes';
+import { Squash } from 'hamburger-react'
 
 
 const style = {
-  active: `flex flex-col items-center font-fontMono text-sm items-center text-orange-400 nav-item lg:m-0 m-4`,
-  inactive: `flex flex-col items-center font-fontMono text-sm items-center text-white hover:text-orange-400`,
+  active: ` text-orange-500 `,
 };
 
 
 export const Header: React.FC = () => {
-  const [navbarOpen, setNavbarOpen] = useState(false);
+  const [open, setOpen] = useState(false)
+  const ref = useRef(null)
+  const router = useRouter()
 
-  const router = useRouter();
+  useOnClickOutside(ref, () => setOpen(false))
+
 
   return (
     <>
-      <nav className="sticky top-0 z-20 py-2 md:py-6 dark:bg-black">
-        <div className="xl:w-4/5 w-11/12 container mx-auto flex flex-wrap items-center justify-between">
-          <div className="w-full sticky flex justify-between lg:w-auto lg:static lg:block lg:justify-start lg:h-auto h-[10vh] items-center">
-          {/* <Link href="/"> */}
-          <div className='lg:hidden text-3xl text-white px-3 py-2 flex items-center'>
-              <AiOutlineShopping />
-</div>
-                        <a className="font-medium tracking-wider transition-colors text-white hover:animate-spin">
-                            {/* <img className="w-[3rem]" src='/logo.png' alt="anthony's logo" /> */}
-                            audioStore
-                        </a>
-                    {/* </Link> */}
-                    
-                    <div className="flex items-center">
-                    <div className="lg:hidden">
-          </div>
-            <button
-              className="text-white bg-orange-500 cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded-full h-[3rem] bg-transparent block lg:hidden outline-none focus:outline-none"
-              type="button"
-              onClick={() => setNavbarOpen(!navbarOpen)}
-            >
-                {navbarOpen ? <AiOutlineClose /> : <FaBars />}
+    <div className='sticky top-0 z-[999]'>
+    <div className='bg-black w-full'>
+    <nav className='flex justify-between text-white items-center bg-inherit xl:w-4/5 w-11/12 container mx-auto py-4'>
+    <div ref={ref} className='lg:hidden'>
+      <div className='rounded-sm shadow-2xs'>
+        <Squash
+          size={25}
+          toggled={open}
+          toggle={setOpen}
+          hideOutline={false}
+        />
+      </div>
+      <AnimatePresence>
+        {open && (
+          <motion.ul className='fixed bg-black flex flex-col lg:flex-row lg:justify-between gap-4 top-16 left-0 right-0 z-[-1] border-b-2 border-[#242424]' {...framer_menu}>
+            {routes.map(route => {
+              const { Icon, slug, title } = route
+
+              const isCurrent = router.query.slug === title
+              const isCategory = router.query.slug?.includes(title)
+              const isSubCategory = router.query.slug?.includes(
+                title.substring(0, title.length - 1),
+              )
+              return (
+                <li key={route.title}>
+                  <Link href={slug}>
+                    <a
+                    className={`uppercase flex items-center justify-between max-w-full p-3 border-[#242424] border-2 rounded-md font-bold
+                    ${router.pathname === '/' && slug === '/' && style.active} ${isCurrent && style.active} ${isCategory && style.active} ${isSubCategory && style.active}`}                     
+                      onClick={() => setOpen(false)}
+                    >
+                      {title}
+                      <Icon className={'css.icon'} />
+                    </a>
+                  </Link>
+                </li>
+              )
+            })}
+          </motion.ul>
+        )}
+      </AnimatePresence>
+    </div>
+    <p className='text-white'>audiostore</p>
+    <div className='flex items-center gap-8'>
+    <ul className='uppercase gap-9 lg:flex hidden font-bold'>
+      {routes.map(route => {
+        const { title, slug } = route
+
+        const isCurrent = router.query.slug === title
+        const isCategory = router.query.slug?.includes(title)
+        const isSubCategory = router.query.slug?.includes(
+          title.substring(0, title.length - 1),
+        )
+
+        return (
+          <li key={title}>
+            <Link href={slug}>
+              <a
+                 className={`text-sm;
+                 ${router.pathname === '/' && slug === '/' && style.active} ${isCurrent && style.active} ${isCategory && style.active} ${isSubCategory && style.active}`}
                 
-            </button>
-            </div>
-
-          </div>
-          <div
-            className={
-              "lg:flex flex-grow items-center lg:h-auto h-screen justify-center" +
-              (navbarOpen ? " flex" : " hidden")
-            }
-            // id="example-navbar-danger"
-          >
-            <ul className="flex flex-col lg:flex-row list-none lg:ml-auto ml-[25%] lg:transform-none translate-y-[-50%] translate-x-[-50%]">
-              <li className={
-                      router.pathname === "/"
-                        ? style.active
-                        : style.inactive
-                    } onClick={() => setNavbarOpen(false)}>
-                      <Link href="/">
-                <a
-                  className="px-3 py-2 flex items-center uppercase font-bold leading-snug "
-                  
-                >
-                  Home
-                </a>
-                </Link>
-              </li>
-              <li className={
-                      router.pathname === "/category/headphones"
-                      ? style.active
-                      : style.inactive
-                    } onClick={() => setNavbarOpen(false)}>
-                      <Link href="/category/headphones">
-                <a
-                  className="px-3 py-2 flex items-center uppercase font-bold leading-snug"
-                  
-                >
-                 HEADPHONES
-                </a>
-                </Link>
-              </li>
-              <li className={
-                      router.pathname.startsWith("/category/speakers")
-                      ? style.active
-                      : style.inactive
-                    } onClick={() => setNavbarOpen(false)}>
-                      <Link href="/category/speakers">
-                <a
-                  className="px-3 py-2 flex items-center uppercase font-bold leading-snug "
-                  
-                >
-                  SPEAKERS
-                </a>
-                </Link>
-              </li>
-              <li className={
-                      router.pathname.startsWith("/category/earphones")
-                      ? style.active
-                      : style.inactive
-                    } onClick={() => setNavbarOpen(false)}>
-                      <Link href="/category/earphones">
-                <a
-                  className="px-3 py-2 flex items-center uppercase font-bold leading-snug "
-                  
-                >
-                  EARPHONES
-                </a>
-                </Link>
-              </li>
-             
-            </ul>
-          </div>
-          <div className="hidden lg:block">
-          </div>
-
-          <div className='lg:block hidden text-3xl text-white px-3 py-2 flex items-center'>
-              <AiOutlineShopping />
-</div>
-        </div>
-      </nav>
+              >
+                {title}
+              </a>
+            </Link>
+          </li>
+        )
+      })}
+    </ul>
+    <ShowCart />
+    </div>
+    </nav>
+    </div>
+    </div>
     </>
   )
 }
