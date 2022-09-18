@@ -26,7 +26,7 @@ export const Preview: React.FC<IProps> = ({ product, reverse }) => {
         {product.new && <p className='font-bold uppercase leading-3 text-orange-500 tracking-[0.6rem] text-sm'>new product</p>}
         <h2 className='flex md:text-3xl text-[1.75rem] flex-col font-bold max-w-[25.7rem]'>{product.name}</h2>
         <p className='font-medium text-base text-[#6d6d6d] leading-6'>{product.description}</p>
-        <button className='uppercase rounded-sm text-white bg-orange-500 px-12 py-4' onClick={() => router.push(`/product/${product.slug}`)}>
+        <button className='uppercase rounded-sm text-white bg-orange-500 px-12 py-4 hoverBtn' onClick={() => router.push(`/product/${product.slug}`)}>
           see product
         </button>
       </div>

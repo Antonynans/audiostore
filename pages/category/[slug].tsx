@@ -5,6 +5,7 @@ import { IProduct } from '../../models/product';
 import { GetStaticProps, GetStaticPaths } from 'next'
 import { routes } from '../../utils/routes';
 import { products } from '../../data';
+import { SEO } from '../../components/seo';
 
 
 interface IProps {
@@ -15,9 +16,14 @@ interface IProps {
 
 
 const CategoryPage: NextPage<IProps> = props => {
+  // console.log('props.title', props.title);
   
   return (
     <>
+     <SEO
+        title={props.title}
+        desc={`Browse exceptional high quality ${props.title} on AudioStore`}
+      />
       <Layout>
         <div>
         <p className='bg-black text-white h-52 flex items-center justify-center text-4xl uppercase'>{props.title}</p>
