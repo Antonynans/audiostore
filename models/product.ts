@@ -1,7 +1,7 @@
-import { IAsset } from '@models/asset'
-import { IGallery } from '@models/gallery'
-import { IIncludes } from '@models/includes'
-import { ISuggestion } from '@models/suggestion'
+import { IAsset } from './asset'
+import { IGallery } from './gallery'
+import { IIncludes } from './includes'
+import { ISuggestion } from './suggestion'
 
 export interface IProduct {
   id: number

@@ -1,4 +1,4 @@
-import { IAsset } from '@models/asset'
+import { IAsset } from './asset'
 
 export interface IGallery {
   first: IAsset
