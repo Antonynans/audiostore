@@ -53,12 +53,6 @@ const Header: React.FC<IProps> = ({ fn }) => {
 const RenderCart: React.FC = () => {
   const { cart } = useCart()
 
-  const details = cart.map((item: ICartItem) => (
-    products.find(product => product.id === item.id)
-  ))
-// const line_list = products.find(item => item.id == details)
-console.log('carfs',  details)
-
   return (
     <motion.ul className='flex flex-col gap-8 p-6' layout>
       {cart.map((item: ICartItem) => (

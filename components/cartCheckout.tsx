@@ -55,7 +55,9 @@ const CheckoutLink: React.FC = () => {
       ...products.find(product => product.id === item.id)
     }
   })
- 
+ console.log('====================================');
+ console.log(merged);
+ console.log('====================================');
   
   const handleCheckout = async () => {
     const stripe = await getStripe();
