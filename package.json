@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@stripe/react-stripe-js": "^1.10.0",
     "@stripe/stripe-js": "^1.32.0",
     "framer-motion": "^7.3.5",
     "hamburger-react": "^2.5.0",

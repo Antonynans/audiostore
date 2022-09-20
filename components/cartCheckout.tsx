@@ -49,7 +49,13 @@ const CheckoutLink: React.FC = () => {
   const { cart } = useCart()
   const emptyCart = !cart || cart.length < 1
 
-  console.log('cart', cart);
+  const merged = cart?.map(item => {
+    return {
+      ...item,
+      ...products.find(product => product.id === item.id)
+    }
+  })
+ 
   
   const handleCheckout = async () => {
     const stripe = await getStripe();
@@ -59,7 +65,7 @@ const CheckoutLink: React.FC = () => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(products),
+      body: JSON.stringify(merged),
     });
 
     if(response.statusCode === 500) return;
@@ -67,17 +73,17 @@ const CheckoutLink: React.FC = () => {
     const data = await response.json();
 
     // toast.loading('Redirecting...');
-    alert('loading...')
+    // alert('loading...')
 
     stripe.redirectToCheckout({ sessionId: data.id });
   }
 
   return (
-    <button>
-      <a className={`flex justify-center items-center p-6 gap-2 uppercase font-bold text-white bg-orange-500 hoverBtn ${emptyCart && "pointer-events-none opacity-50"}`} onClick={() => handleCheckout()}>
+    <button className={`flex w-full justify-center items-center p-6 gap-2 uppercase font-bold text-white bg-orange-500 hoverBtn ${emptyCart && "pointer-events-none opacity-50"}`} onClick={() => handleCheckout()}>
+      {/* <a > */}
         <TiShoppingCart />
         checkout
-      </a>
+      {/* </a> */}
     </button>
   )
 }

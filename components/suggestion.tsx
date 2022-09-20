@@ -2,14 +2,13 @@ import React from 'react'
 import { ISuggestion } from '../models/suggestion'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
-// import { useWindowSize } from '@hooks/useWindowSize'
+
 
 interface IProps {
   suggestion: ISuggestion
 }
 
 export const Suggestion: React.FC<IProps> = ({ suggestion }) => {
-  // const { isTouch } = useWindowSize()
   const router = useRouter();
 
   return (
@@ -18,7 +17,7 @@ export const Suggestion: React.FC<IProps> = ({ suggestion }) => {
         <Image
           src={suggestion.image.desktop}
           objectFit="cover"
-          // placeholder="blur"
+          placeholder="blur"
         />
       </div>
       <h3 className='uppercase font-black'>{suggestion.name}</h3>
