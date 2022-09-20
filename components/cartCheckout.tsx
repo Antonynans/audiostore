@@ -1,5 +1,4 @@
 import React from 'react'
-import Link from 'next/link'
 import { TiShoppingCart } from 'react-icons/ti'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useCart } from '../context'
@@ -30,12 +29,7 @@ export const CartCheckout: React.FC = () => {
         <span className='uppercase text-[#6d6d6]'>total</span>
         <AnimatePresence mode='wait' initial={false}>
           <motion.span key={price} className='font-black' {...framer_money}>
-            {/* <NumberFormat
-              value={price}
-              displayType={'text'}
-              thousandSeparator={true}
-              prefix={'$ '}
-            /> */}
+            
             ${price}
           </motion.span>
         </AnimatePresence>
