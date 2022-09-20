@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { TiShoppingCart } from 'react-icons/ti'
 import { AnimatePresence, motion } from 'framer-motion'
@@ -55,10 +55,22 @@ const CheckoutLink: React.FC = () => {
       ...products.find(product => product.id === item.id)
     }
   })
- console.log('====================================');
- console.log(merged);
- console.log('====================================');
-  
+
+  function ClientOnly({ children, ...delegated }) {
+    const [hasMounted, setHasMounted] = useState(false);
+ 
+    useEffect(() => {
+       setHasMounted(true);
+    }, []);
+ 
+    if (!hasMounted) {
+       return null;
+    }
+    return (
+       <div {...delegated}>{children}</div>
+    );
+ }
+ 
   const handleCheckout = async () => {
     const stripe = await getStripe();
 
@@ -81,11 +93,13 @@ const CheckoutLink: React.FC = () => {
   }
 
   return (
+    <ClientOnly>
     <button className={`flex w-full justify-center items-center p-6 gap-2 uppercase font-bold text-white bg-orange-500 hoverBtn ${emptyCart && "pointer-events-none opacity-50"}`} onClick={() => handleCheckout()}>
       {/* <a > */}
         <TiShoppingCart />
         checkout
       {/* </a> */}
     </button>
+    </ClientOnly>
   )
 }
