@@ -45,8 +45,6 @@ const CheckoutLink: React.FC = () => {
   const { cart } = useCart()
   const emptyCart = !cart || cart.length < 1
 
-  const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_PUBLIC_KEY);
-
   const merged = cart?.map(item => {
     return {
       ...item,
@@ -57,7 +55,7 @@ const CheckoutLink: React.FC = () => {
 
   const handleCheckout = async (e: FormEvent) => {
     e.preventDefault();
-    const stripe = await stripePromise;
+    const stripe = await getStripe();
 
     const response: any = await fetch('/api/stripe', {
       method: 'POST',

@@ -3,7 +3,6 @@ import { Layout } from '../../components/layout';
 import { IProduct } from '../../models/product';
 import { GetStaticProps, GetStaticPaths } from 'next'
 import { SEO } from '../../components/seo';
-import { ParsedUrlQuery } from 'querystring'
 import { Product } from '../../components/product';
 import { products } from '../../data';
 
@@ -17,12 +16,11 @@ interface IProps {
 const ProductPage: NextPage<IProps> = props => {
   const { product } = props
 
-  // console.log('product', product);
   
 
   return (
 <>
-<SEO
+  <SEO
         title={product.name}
         desc={product.description}
       />
@@ -45,9 +43,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 }
 
-interface IParams extends ParsedUrlQuery {
-  slug: string
-}
 
 export const getStaticProps: GetStaticProps = async context => {
   const { slug } = context.params
@@ -57,4 +52,4 @@ export const getStaticProps: GetStaticProps = async context => {
   }
 }
 
-export default ProductPage
+export default ProductPage;

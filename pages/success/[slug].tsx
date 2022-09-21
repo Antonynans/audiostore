@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { BsBagCheckFill } from 'react-icons/bs';
 import { useCart } from '../../context';
 import { useEffect } from 'react';
+import { runFireworks } from '../../lib/utils';
 
 const Success: NextPage = () => {
   const { clearCart } = useCart();
@@ -13,6 +14,7 @@ const Success: NextPage = () => {
   useEffect(() => {
     localStorage.clear();
     clearCart();
+    runFireworks();
    
   }, []);
 

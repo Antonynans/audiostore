@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image'
 import { ICartItem } from '../models/cart'
 import { IProduct } from '../models/product'
 import { useCart } from '../context'
 import { Quantity } from './quantity'
+import { Sidebar } from './cart'
+import { AnimatePresence } from 'framer-motion'
 
 interface IProps {
   product: IProduct
@@ -11,18 +13,23 @@ interface IProps {
 
 export const Showcase: React.FC<IProps> = ({ product }) => {
   const { name, description, image, new: newProduct, id } = product
-  const { increase, cart, decrease } = useCart()
+  const { increase, cart } = useCart()
   const itemExists: ICartItem = cart?.find(
     (item: ICartItem) => item.id === product.id,
   )
+  const [open, setOpen] = useState(false)
+  const toggleOpen = () => setOpen(prev => !prev)
+  const closeSidebar = () => setOpen(false)
 
-  
-  const count = itemExists ? itemExists.quantity : 0
 
+  const handleBuyNow = () => {
+    toggleOpen();
+    increase(id)
+  }
 
   return (
     <div className='xl:w-4/5 w-11/12 container mx-auto lg:flex gap-12 items-center lg:gap-16'>
-      <div className='rounded-md overflow-hidden lg:h-[35rem] md:max-w-[21rem] lg:flex lg:max-w-[50%] h-80'>
+      <div className='rounded-md overflow-hidden lg:h-[35rem] md:max-w-[21rem] lg:flex lg:max-w-[50%] h-auto'>
         <Image
           src={image.desktop}
           alt={name}
@@ -44,13 +51,16 @@ export const Showcase: React.FC<IProps> = ({ product }) => {
          
           
         </div>
-        <button className='uppercase rounded-sm text-white bg-orange-500 px-12 py-4 disabled:opacity-50'
-            onClick={() => increase(id)}
+        <button className='uppercase rounded-sm text-white bg-orange-500 px-12 py-4 disabled:opacity-50 hoverBtn disabled:transition-none disabled:transform-none'
+            onClick={handleBuyNow}
             disabled={itemExists?.quantity >= 3 && true}
           
           >
             add to cart
           </button>
+          <AnimatePresence mode="wait" initial={false}>
+        {open && <Sidebar fn={closeSidebar} />}
+  </AnimatePresence>
           </div>
       </div>
     </div>
