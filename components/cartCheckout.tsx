@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FormEvent } from 'react'
 import { TiShoppingCart } from 'react-icons/ti'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useCart } from '../context'
@@ -51,7 +51,8 @@ const CheckoutLink: React.FC = () => {
   })
   
  
-  const handleCheckout = async () => {
+  const handleCheckout = async (e: FormEvent) => {
+    e.preventDefault();
     const stripe = await getStripe();
 
     const response: any = await fetch('/api/stripe', {
@@ -64,16 +65,21 @@ const CheckoutLink: React.FC = () => {
 
     if(response.statusCode === 500) return;
 
-    const data = await response.json();
+        const data = await response.json();
+
+    const { error } = await stripe!.redirectToCheckout({
+      sessionId: data.id,
+    })
+    console.warn(error.message);
 
     // toast.loading('Redirecting...');
     // alert('loading...')
 
-    stripe.redirectToCheckout({ sessionId: data.id });
+    // stripe.redirectToCheckout({ sessionId: data.id });
   }
 
   return (
-    <button className={`flex w-full justify-center items-center p-6 gap-2 uppercase font-bold text-white bg-orange-500 hoverBtn ${emptyCart && "pointer-events-none opacity-50"}`} onClick={() => handleCheckout()}>
+    <button className={`flex w-full justify-center items-center p-6 gap-2 uppercase font-bold text-white bg-orange-500 hoverBtn ${emptyCart && "pointer-events-none opacity-50"}`} onClick={(e: FormEvent) => handleCheckout(e)}>
       {/* <a > */}
         <TiShoppingCart />
         checkout

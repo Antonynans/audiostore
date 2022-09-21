@@ -20,11 +20,12 @@ function ClientOnly({ children, ...delegated }) {
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <CartProvider>
       <ClientOnly>
-      <Component {...pageProps} />
+        <CartProvider>
+          <Component {...pageProps} />
+        </CartProvider>
       </ClientOnly>
-      </CartProvider>
+
   )
 }
 
