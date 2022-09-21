@@ -1,10 +1,10 @@
 // import React from 'react';
 import type { NextPage } from 'next'
-import { Layout } from '../components/layout'
-import { SEO } from '../components/seo'
+import { Layout } from '../../components/layout'
+import { SEO } from '../../components/seo'
 import Link from 'next/link';
 import { BsBagCheckFill } from 'react-icons/bs';
-import { useCart } from '../context';
+import { useCart } from '../../context';
 import { useEffect } from 'react';
 
 const Success: NextPage = () => {

@@ -72,6 +72,9 @@ const CheckoutLink: React.FC = () => {
     })
     console.warn(error.message);
 
+    console.log('merged', merged, data);
+    
+
     // toast.loading('Redirecting...');
     // alert('loading...')
 
