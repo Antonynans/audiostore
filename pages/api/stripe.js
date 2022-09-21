@@ -3,20 +3,12 @@ import Stripe from "stripe";
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 async function CreateStripeSession(req, res) {
-  const { data } = req.body;
-
-  const redirectURL =
-    process.env.NODE_ENV === "development"
-      ? "http://localhost:3000"
-      : "https://theaudiostore.netlify.app";
-
   const transformedItem = req.body.map((item) => {
     return {
       price_data: {
         currency: "usd",
         product_data: {
           name: item.name,
-          // images: item.image.mobile,
         },
         unit_amount: item.price * 100,
       },

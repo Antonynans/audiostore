@@ -6,6 +6,8 @@ import { ICartItem } from '../models/cart'
 import { products } from '../data'
 import { framer_money } from './cart/framer'
 import getStripe from '../lib/getStripe';
+import { Stripe, loadStripe } from '@stripe/stripe-js';
+
 
 export const CartCheckout: React.FC = () => {
   const { cart } = useCart();
@@ -43,6 +45,8 @@ const CheckoutLink: React.FC = () => {
   const { cart } = useCart()
   const emptyCart = !cart || cart.length < 1
 
+  const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_PUBLIC_KEY);
+
   const merged = cart?.map(item => {
     return {
       ...item,
@@ -53,7 +57,7 @@ const CheckoutLink: React.FC = () => {
 
   const handleCheckout = async (e: FormEvent) => {
     e.preventDefault();
-    const stripe = await getStripe();
+    const stripe = await stripePromise;
 
     const response: any = await fetch('/api/stripe', {
       method: 'POST',
