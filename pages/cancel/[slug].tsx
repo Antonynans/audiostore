@@ -1,5 +1,5 @@
 import type { NextPage } from 'next'
-import { SEO } from '../components/seo'
+import { SEO } from '../../components/seo'
 import { useEffect } from 'react';
 
 const Cancel: NextPage = () => {

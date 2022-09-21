@@ -50,7 +50,6 @@ const CheckoutLink: React.FC = () => {
     }
   })
   
-  console.log('merged', merged);
 
   const handleCheckout = async (e: FormEvent) => {
     e.preventDefault();
@@ -68,7 +67,7 @@ const CheckoutLink: React.FC = () => {
 
       const data = await response.json();
 
-    const { error } = await stripe!.redirectToCheckout({
+    const { error } = await stripe.redirectToCheckout({
       sessionId: data.id,
     })
     console.warn(error.message);
