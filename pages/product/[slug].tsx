@@ -5,7 +5,7 @@ import { GetStaticProps, GetStaticPaths } from 'next'
 import { SEO } from '../../components/seo';
 import { Product } from '../../components/product';
 import { products } from '../../data';
-
+import { ParsedUrlQuery } from 'querystring'
 
 
 interface IProps {
@@ -13,15 +13,18 @@ interface IProps {
 
 }
 
+function capitalize_first_letter(string: string) {
+  return 'AudioStore | ' + string.charAt(0).toUpperCase() + string.slice(1)
+}
+
 const ProductPage: NextPage<IProps> = props => {
   const { product } = props
-
   
 
   return (
 <>
   <SEO
-        title={product.name}
+        title={capitalize_first_letter(product.name)}
         desc={product.description}
       />
       <Layout>
@@ -43,9 +46,13 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 }
 
+interface IParams extends ParsedUrlQuery {
+  slug: string
+}
+
 
 export const getStaticProps: GetStaticProps = async context => {
-  const { slug } = context.params
+  const { slug } = context.params as IParams
   const data = products.find(product => product.slug === slug)
   return {
     props: { product: data },

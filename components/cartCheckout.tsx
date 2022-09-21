@@ -6,7 +6,7 @@ import { ICartItem } from '../models/cart'
 import { products } from '../data'
 import { framer_money } from './cart/framer'
 import getStripe from '../lib/getStripe';
-import { Stripe, loadStripe } from '@stripe/stripe-js';
+import toast from "react-hot-toast";
 
 
 export const CartCheckout: React.FC = () => {
@@ -24,6 +24,7 @@ export const CartCheckout: React.FC = () => {
     0,
   )
 
+  var nf = new Intl.NumberFormat();
 
   return (
     <div className='p-6 bg-[#fafafa] shadow-sm'>
@@ -32,7 +33,7 @@ export const CartCheckout: React.FC = () => {
         <AnimatePresence mode='wait' initial={false}>
           <motion.span key={price} className='font-black' {...framer_money}>
             
-            ${price}
+            ${nf.format(price)}
           </motion.span>
         </AnimatePresence>
       </p>
@@ -76,10 +77,8 @@ const CheckoutLink: React.FC = () => {
 
     
 
-    // toast.loading('Redirecting...');
-    // alert('loading...')
+    toast.loading('Redirecting...');
 
-    // stripe.redirectToCheckout({ sessionId: data.id });
   }
 
   return (

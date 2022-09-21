@@ -2,10 +2,7 @@
 import { ICartItem } from '../../models/cart'
 import Image from 'next/image'
 import React from 'react'
-// import css from './styles.module.css'
-// import { Quantity } from '../components/index'
 import { motion } from 'framer-motion'
-// import NumberFormat from 'react-number-format'
 import Link from 'next/link'
 import { products } from '../../data'
 import { Quantity } from '../quantity'
@@ -20,6 +17,8 @@ export const CartItem: React.FC<IProps> = ({ item }) => {
   if (!product) {
     return null
   }
+
+  var nf = new Intl.NumberFormat();
 
   return (
     <motion.li layout>
@@ -38,13 +37,8 @@ export const CartItem: React.FC<IProps> = ({ item }) => {
               <a className='font-black hover:text-orange-500'>{product.shortName}</a>
             </Link>
             <p className='{css.price}'>
-              {/* <NumberFormat
-                value={product.price}
-                displayType={'text'}
-                thousandSeparator={true}
-                prefix={'$ '}
-              /> */}
-              ${product.price}
+             
+              ${nf.format(product.price)}
             </p>
           </div>
         </div>

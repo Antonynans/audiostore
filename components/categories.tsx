@@ -19,7 +19,7 @@ const Categories: React.FC = () => {
         </div>
         <p className="text-center mt-16 uppercase text-black">{cat.title}</p>
         <Link href={cat.slug}>
-          <a className="flex items-center justify-center text-sm">SHOP <MdNavigateNext /> </a>
+          <a className="flex items-center justify-center text-sm">SHOP <MdNavigateNext className="text-orange-500" /> </a>
         </Link>
       </div>
       ))}

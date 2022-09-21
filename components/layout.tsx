@@ -4,7 +4,6 @@ import { Footer } from './footer'
 import { Gear } from './gear'
 import { Header } from './header'
 import { SEO } from './seo'
-// import { Topbar, Footer, Gear, Categories } from '@components/index'
 
 interface IProps {
   children: React.ReactNode

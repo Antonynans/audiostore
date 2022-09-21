@@ -14,14 +14,17 @@ interface IProps {
 
 }
 
+function capitalize_first_letter(string: string) {
+  return 'AudioStore | ' + string.charAt(0).toUpperCase() + string.slice(1)
+}
+
 
 const CategoryPage: NextPage<IProps> = props => {
-  // console.log('props.title', props.title);
   
   return (
     <>
      <SEO
-        title={props.title}
+        title={capitalize_first_letter(props.title)}
         desc={`Browse exceptional high quality ${props.title} on AudioStore`}
       />
       <Layout>

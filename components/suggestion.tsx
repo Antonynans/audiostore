@@ -21,7 +21,7 @@ export const Suggestion: React.FC<IProps> = ({ suggestion }) => {
         />
       </div>
       <h3 className='uppercase font-black'>{suggestion.name}</h3>
-      <button className='p-4 w-full max-w-[160px] mt-8 rounded-sm border-2 bg-orange-500 uppercase text-white hoverBtn' onClick={() => router.push(`/product/${suggestion.slug}`)}>
+      <button className='p-4 w-full max-w-[160px] mt-8 rounded-sm bg-orange-500 uppercase text-white hoverBtn' onClick={() => router.push(`/product/${suggestion.slug}`)}>
         see product
       </button>
     </li>

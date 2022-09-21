@@ -5,7 +5,7 @@ import { SEO } from "../components/seo"
 const NotFound: NextPage = () => {
   return (
     <>
-      <SEO title="404" desc="Oops ! Not found" />
+      <SEO title="AudioStore | 404" desc="Oops ! Not found" />
       <Layout>
         <header className='py-16 px-40 text-white bg-black mb-40 flex flex-col justify-center items-center'>
           <h1 className="uppercase text-4xl">Not found</h1>

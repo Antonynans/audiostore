@@ -8,7 +8,6 @@ import { VscChromeClose } from 'react-icons/vsc'
 import { ICartItem } from '../../models/cart';
 import { CartItem } from "./cart_items";
 import { CartCheckout } from "../cartCheckout";
-import { products } from "../../data";
 
 
 interface IProps {

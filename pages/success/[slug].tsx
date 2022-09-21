@@ -21,7 +21,7 @@ const Success: NextPage = () => {
   return (
    <>
 <SEO
-        title='success page'
+        title='AudioStore | Success page'
         desc=''
       />
       <Layout>
