@@ -4,7 +4,6 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 export default async function handler(req, res) {
 
-  console.log('req,', req.body);
   if (req.method === 'POST') {
    
     try {
@@ -32,14 +31,13 @@ export default async function handler(req, res) {
               enabled:true,
               minimum: 1,
             },
-            quantity: 2,
+            quantity: item.quantity,
           }
         }),
         // line_items,
         success_url: `${req.headers.origin}/success/result?session_id={CHECKOUT_SESSION_ID}`,
         cancel_url: `${req.headers.origin}/canceled/result?session_id={CHECKOUT_SESSION_ID}`,
       }
-      console.log('line-items', line_items)
 
       // Create Checkout Sessions from body params.
       const session = await stripe.checkout.sessions.create(params);

@@ -50,7 +50,8 @@ const CheckoutLink: React.FC = () => {
     }
   })
   
- 
+  console.log('merged', merged);
+
   const handleCheckout = async (e: FormEvent) => {
     e.preventDefault();
     const stripe = await getStripe();
@@ -65,14 +66,13 @@ const CheckoutLink: React.FC = () => {
 
     if(response.statusCode === 500) return;
 
-        const data = await response.json();
+      const data = await response.json();
 
     const { error } = await stripe!.redirectToCheckout({
       sessionId: data.id,
     })
     console.warn(error.message);
 
-    console.log('merged', merged, data);
     
 
     // toast.loading('Redirecting...');
@@ -83,10 +83,8 @@ const CheckoutLink: React.FC = () => {
 
   return (
     <button className={`flex w-full justify-center items-center p-6 gap-2 uppercase font-bold text-white bg-orange-500 hoverBtn ${emptyCart && "pointer-events-none opacity-50"}`} onClick={(e: FormEvent) => handleCheckout(e)}>
-      {/* <a > */}
         <TiShoppingCart />
         checkout
-      {/* </a> */}
     </button>
   )
 }
