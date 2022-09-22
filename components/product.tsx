@@ -13,7 +13,7 @@ interface IProps {
 export const Product: React.FC<IProps> = ({ product }) => {
   return (
     <>
-      <div className='w-full p-6 m-auto mt-12 '>
+      <div className='w-full m-auto mt-12 '>
         <Showcase product={product} />
         <Features text={product.features} />
         <Includes includes={product.includes} />

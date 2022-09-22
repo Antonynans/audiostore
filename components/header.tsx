@@ -38,7 +38,7 @@ export const Header: React.FC = () => {
       </div>
       <AnimatePresence>
         {open && (
-          <motion.ul className='w-11/12 m-auto fixed bg-black flex flex-col lg:flex-row lg:justify-between gap-4 top-16 left-0 right-0 z-[-1] border-b-2 border-[#242424] pt-12' {...framer_menu}>
+          <motion.ul className='px-[5%] m-auto fixed bg-black flex flex-col lg:flex-row lg:justify-between gap-4 top-16 left-0 right-0 z-[-1] border-b-2 border-[#242424] pt-12' {...framer_menu}>
             {routes.map(route => {
               const { Icon, slug, title } = route
 
@@ -48,7 +48,7 @@ export const Header: React.FC = () => {
                 title.substring(0, title.length - 1),
               )
               return (
-                <li key={route.title} className='hover:text-orange-500'>
+                <li key={route.title} className='hover:text-orange-500 last:mb-8'>
                   <Link href={slug}>
                     <a
                     className={`uppercase flex items-center justify-between max-w-full p-3 border-[#242424] border-2 rounded-md font-bold
