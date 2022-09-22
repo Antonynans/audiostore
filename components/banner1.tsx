@@ -8,7 +8,7 @@ const Banner: React.FC = () => {
   const router = useRouter();
   
   return(
-    <div className='xl:w-4/5 w-11/12 flex lg:h-[560px] px-5 py-14 lg:justify-end lg:flex-row flex-col relative items-center bg-[#ec5d49] gap-7 text-white container rounded-md overflow-hidden mx-auto bg-[url("/pattern-circles.svg")] bg-no-repeat bg-center bg-cover'>
+    <div className='xl:w-2/3 w-11/12 flex lg:h-[560px] px-5 py-14 lg:justify-end lg:flex-row flex-col relative items-center bg-[#ec5d49] gap-7 text-white container rounded-md overflow-hidden mx-auto bg-[url("/pattern-circles.svg")] bg-no-repeat bg-center bg-cover'>
     <div className='lg:absolute lg:max-w-[26.625rem] lg:left-[7.5rem] md:max-w-[12.3rem] max-w-[172px] -bottom-4'>
     <Image src={zx9_image} alt="ZX9 Speaker" placeholder="blur"/>
     </div>

@@ -13,7 +13,7 @@ export const Preview: React.FC<IProps> = ({ product, reverse }) => {
   const router = useRouter();
   
   return (
-    <div className={`xl:w-4/5 w-11/12 container mx-auto lg:flex lg:gap-32 gap-8 mb-12 ${reverse && 'flex-row-reverse'}`}>
+    <div className={`xl:w-2/3 w-11/12 container mx-auto lg:flex lg:gap-32 gap-8 mb-12 ${reverse && 'flex-row-reverse'}`}>
       <div className='flex rounded-md overflow-hidden lg:w-1/2 lg:h-[28.2rem]'>
         <Image
           src={product.categoryImage.tablet}

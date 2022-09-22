@@ -8,7 +8,7 @@ interface IProps {
 
 export const Includes: React.FC<IProps> = ({ includes }) => {
   return (
-    <div className='xl:w-4/5 w-11/12 container mx-auto lg:flex lg:p-16 shadow-3xl p-8 relative rounded-[2rem]'>
+    <div className='xl:w-2/3 w-11/12 container mx-auto lg:flex lg:p-16 shadow-3xl p-8 relative rounded-[2rem]'>
       <div className='absolute -top-8 -right-4 p-4 text-white rounded-full flex justify-center items-center bg-black'>
         <FiPackage className='text-4xl '/>
       </div>

@@ -11,7 +11,7 @@ const HeroBanner: React.FC = () => {
    <main className='heroBg min-h-[calc(100vh-77px)] bg-no-repeat bg-contain bg-bottom z-10 mb-40 bg-black
    large_bg lg:min-h-[632px] lg:h-[632px] lg:relative w-full'>
     <div className='hidden lg:block absolute bg-white -z-[1] w-full h-24 -bottom-8 left-0 right-0 heroTransform'></div>
-<div className="xl:w-4/5 w-11/12 container mx-auto flex lg:flex-row flex-col justify-between items-center">
+<div className="xl:w-2/3 w-11/12 container mx-auto flex lg:flex-row flex-col justify-between items-center">
   <div className='text-white min-h-[calc(100vh-130px)] lg:min-h-full flex flex-col justify-center gap-8 items-center text-center lg:text-left lg:items-start'>
 <p className='font-bold text-[#6d6d6d] text-sm tracking-[0.65rem]'>New product</p>
 <p className='flex flex-col text-5xl leading-[3.5rem] max-w-[22rem]'>XX99 Mark II Headphones</p>

@@ -1,6 +1,5 @@
 import React from 'react'
 import { NextSeo } from 'next-seo'
-// import { DEFAULT_DESC_META_TAG, RENDER_TITLE_META_TAG } from '../lib/constant'
 
 
 interface IProps {

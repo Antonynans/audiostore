@@ -14,7 +14,7 @@ export const Footer: React.FC = () => {
 
   return (
     <div className=" bg-black text-white">
-      <div className='xl:w-4/5 w-11/12 container mx-auto'>
+      <div className='xl:w-2/3 w-11/12 container mx-auto'>
       <div className='flex items-center pt-12 flex-col md:flex-row justify-between'>
         <p className='text-2xl font-semibold tracking-[0.06rem]'>audiStore</p>
         <ul className='flex flex-col md:flex-row md:gap-10 '>

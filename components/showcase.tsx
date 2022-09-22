@@ -28,7 +28,7 @@ export const Showcase: React.FC<IProps> = ({ product }) => {
   }
 
   return (
-    <div className='xl:w-4/5 w-11/12 container mx-auto lg:flex gap-12 items-center lg:gap-16'>
+    <div className='xl:w-2/3 w-11/12 container mx-auto lg:flex gap-12 items-center lg:gap-16'>
       <div className='rounded-md overflow-hidden lg:h-[35rem] md:max-w-[21rem] lg:flex lg:max-w-[50%] h-auto'>
         <Image
           src={image.desktop}

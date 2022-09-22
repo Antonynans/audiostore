@@ -8,7 +8,7 @@ export const Banner3: React.FC = () => {
   const router = useRouter();
   
   return (
-    <div className='xl:w-4/5 w-11/12 container mx-auto  flex flex-col gap-6 md:flex-row my-8 mb-40'>
+    <div className='xl:w-2/3 w-11/12 container mx-auto  flex flex-col gap-6 md:flex-row my-8 mb-40'>
       <div className='h-[200px] md:h-[320px] md:w-1/2 rounded-md overflow-hidden flex'>
         <Image
           src={yx1_image}

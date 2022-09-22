@@ -26,7 +26,7 @@ export const Header: React.FC = () => {
     <>
     <div className='sticky top-0 z-[999]'>
     <div className='bg-black w-full'>
-    <nav className='flex justify-between text-white items-center bg-inherit xl:w-4/5 w-11/12 container mx-auto py-4'>
+    <nav className='flex justify-between text-white items-center bg-inherit xl:w-2/3 w-11/12 container mx-auto py-4'>
     <div ref={ref} className='lg:hidden'>
       <div className='rounded-sm shadow-2xs'>
         <Squash

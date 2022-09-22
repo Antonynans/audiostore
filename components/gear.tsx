@@ -5,7 +5,7 @@ import Image from 'next/image'
 export const Gear: React.FC = () => {
   
   return (
-    <div className='xl:w-4/5 w-11/12 container mx-auto lg:flex flex-row-reverse items-center gap-12 mb-40'>
+    <div className='xl:w-2/3 w-11/12 container mx-auto lg:flex flex-row-reverse items-center gap-12 mb-40'>
       <div className='h-[300px] lg:h-[500px] md:h-auto lg:w-1/2 rounded-md overflow-hidden flex'>
         <Image
           src={image_best_gear}

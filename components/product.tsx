@@ -18,7 +18,7 @@ export const Product: React.FC<IProps> = ({ product }) => {
         <Features text={product.features} />
         <Includes includes={product.includes} />
         <Gallery gallery={product.gallery} />
-        <div className='xl:w-4/5 w-11/12 container mx-auto'>
+        <div className='xl:w-2/3 w-11/12 container mx-auto'>
           <h2 className='mb-8 uppercase text-center text-[1.75rem] lg:text-2xl'>you may also like</h2>
           <ul className='mb-12 flex flex-col md:flex-row gap-24 md:gap-4'>
             {product.others.map(sug => {

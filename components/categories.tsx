@@ -8,9 +8,9 @@ const Categories: React.FC = () => {
   return (
     <>
     <main>
-      <div className="xl:w-4/5 w-11/12 container mx-auto my-20 md:flex justify-between">
+      <div className="xl:w-2/3 w-11/12 container mx-auto my-20 md:flex justify-between gap-4">
       {categories.map((cat, i) => (
-        <div className="shadow-3xl md:mx-2 py-8 my-16 w-full rounded-md flex flex-col items-center justify-center relative hover:text-orange-500" key={i}>
+        <div className="shadow-3xl py-8 my-16 w-full rounded-md flex flex-col items-center justify-center relative hover:text-orange-500" key={i}>
         <div className="absolute -top-12 w-40 h-40">
         <Image  src={cat.image}
           alt={cat.title}

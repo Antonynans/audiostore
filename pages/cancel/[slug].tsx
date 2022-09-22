@@ -1,21 +1,15 @@
 import type { NextPage } from 'next'
 import { SEO } from '../../components/seo'
-import { useEffect } from 'react';
+import toast from "react-hot-toast";
 
 const Cancel: NextPage = () => {
-
-  useEffect(() => {
-    
-   
-  }, []);
-
   return (
    <>
 <SEO
         title='cancel page'
         desc=''
       />
-      
+         { toast.loading('Redirecting...')};
    </>
   )
 }
