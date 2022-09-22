@@ -65,6 +65,7 @@ const CheckoutLink: React.FC = () => {
       },
       body: JSON.stringify(merged),
     });
+    toast.loading('Redirecting...');
 
     if(response.statusCode === 500) return;
 
@@ -74,11 +75,6 @@ const CheckoutLink: React.FC = () => {
       sessionId: data.id,
     })
     console.warn(error.message);
-
-    
-
-    toast.loading('Redirecting...');
-
   }
 
   return (
