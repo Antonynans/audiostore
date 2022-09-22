@@ -23,7 +23,7 @@ export const Sidebar: React.FC<IProps> = ({ fn }) => {
   return (
     <>
       <BlurredBackground />
-      <motion.div className='fixed right-0 bottom-0 w-full h-full max-w-md text-black flex flex-col justify-between overflow-y-scroll bg-[#f1f1f1]' {...framer_cart} ref={ref}>
+      <motion.div className='fixed right-0 bottom-0 w-full h-full max-w-md text-black flex flex-col justify-between overflow-y-scroll bg-[#f1f1f1] z-[999]' {...framer_cart} ref={ref}>
         <Header fn={fn} />
         {cartExists ? <EmptyCart /> : <RenderCart />}
         <CartCheckout />
