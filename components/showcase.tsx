@@ -6,6 +6,7 @@ import { useCart } from '../context'
 import { Quantity } from './quantity'
 import { Sidebar } from './cart'
 import { AnimatePresence } from 'framer-motion'
+import { toast } from 'react-hot-toast';
 
 interface IProps {
   product: IProduct
@@ -17,6 +18,8 @@ export const Showcase: React.FC<IProps> = ({ product }) => {
   const itemExists: ICartItem = cart?.find(
     (item: ICartItem) => item.id === product.id,
   )
+  const count = itemExists ? itemExists.quantity + 1 : 1
+
   const [open, setOpen] = useState(false)
   const toggleOpen = () => setOpen(prev => !prev)
   const closeSidebar = () => setOpen(false)
@@ -24,7 +27,9 @@ export const Showcase: React.FC<IProps> = ({ product }) => {
 
   const handleBuyNow = () => {
     toggleOpen();
-    increase(id)
+    increase(id);
+    toast.success(`${count} ${product.name} added to the cart.`);
+
   }
 
   return (
@@ -47,9 +52,8 @@ export const Showcase: React.FC<IProps> = ({ product }) => {
             product={product}
             key={product.name}
             transparent={false}
-          />
-         
-          
+            isHidden={true}
+          />          
         </div>
         <button className='uppercase rounded-sm text-white bg-orange-500 px-12 py-4 disabled:opacity-50 hoverBtn disabled:transition-none disabled:transform-none'
             onClick={handleBuyNow}

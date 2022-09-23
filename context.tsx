@@ -13,7 +13,7 @@ export const CartProvider: React.FC<IProps> = ({ children }) => {
   const [cart, setCart] = useLocalStorage<ICartItem[] | null>('cart', null)
 
   const clearCart = () => {
-    setCart(null)
+    setCart([])
   }
 
   const updateCart = (id: number, isDecrease?: boolean) => {
@@ -56,17 +56,22 @@ export const CartProvider: React.FC<IProps> = ({ children }) => {
     }
   }
 
+  const removeAllItems = (id: number) => {
+    const newCartItems = cart?.filter((item) => item.id !== id);
+    setCart(newCartItems);
+  }
+
   useEffect(() => {
     cart?.forEach(item => {
       const { id, quantity } = item
       if (quantity > 3 || quantity < 0 || id > products.length || id <= 0) {
-        setCart(null)
+        setCart([])
       }
     })
   }, [cart])
 
   return (
-    <CartContext.Provider value={{ cart, increase, decrease, clearCart }}>
+    <CartContext.Provider value={{ cart, increase, decrease, clearCart, removeAllItems }}>
       {children}
     </CartContext.Provider>
   )

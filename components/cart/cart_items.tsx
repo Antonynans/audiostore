@@ -42,7 +42,7 @@ export const CartItem: React.FC<IProps> = ({ item }) => {
             </p>
           </div>
         </div>
-        <Quantity product={product} transparent maxwidth={100} />
+        <Quantity product={product} transparent maxwidth={100} isHidden={false} />
       </div>
     </motion.li>
   )
