@@ -33,7 +33,7 @@ export const CartCheckout: React.FC = () => {
         <AnimatePresence mode='wait' initial={false}>
           <motion.span key={price} className='font-black' {...framer_money}>
             
-            ${nf.format(price)}
+            ${nf.format(price ? price : 0)}
           </motion.span>
         </AnimatePresence>
       </p>
