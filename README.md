@@ -5,6 +5,7 @@
     <br />
     <br />
     [![Nextjs&Tailwindcss](https://skills.thijs.gg/icons?i=next,tailwind)](https://skills.thijs.gg)
+    
     <a href="https://theaudiostore.netlify.app/">View Demo</a>
     ·
     <a href="https://github.com/antonynans/audiostore/issues">Report Bug</a>
