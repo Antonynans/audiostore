@@ -1,9 +1,10 @@
 ﻿<h3 align="center">AudioStore</h3>
 
   <p align="center">
-    e-commerce website
+   A fully responsive e-commerce website built with Tailwind-css and Nextjs
     <br />
     <br />
+    [![Nextjs&Tailwindcss](https://skills.thijs.gg/icons?i=next,tailwind)](https://skills.thijs.gg)
     <a href="https://theaudiostore.netlify.app/">View Demo</a>
     ·
     <a href="https://github.com/antonynans/audiostore/issues">Report Bug</a>
