@@ -29,3 +29,7 @@ create a pull request. You can also simply open an issue with the tag
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
+
+### 2022 all rights reserved &#169;
+#### Author: [@Antonynans](https://Github.com/Antonynans)
+
