@@ -11,7 +11,7 @@
     <a href="https://github.com/antonynans/audiostore/issues">Request Feature</a>
   </p>
   
-![Nextjs&Tailwindcss](https://skills.thijs.gg/icons?i=next,tailwind)](https://skills.thijs.gg)
+[![Nextjs&Tailwindcss](https://skills.thijs.gg/icons?i=next,tailwind)](https://skills.thijs.gg)]
   
 ![preview](https://user-images.githubusercontent.com/40110972/192010468-0b5d84b4-6c26-4f4c-b5b0-fd00ffdb68a5.gif)
 
